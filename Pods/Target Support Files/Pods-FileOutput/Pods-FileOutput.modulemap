@@ -1,0 +1,6 @@
+framework module Pods_FileOutput {
+  umbrella header "Pods-FileOutput-umbrella.h"
+
+  export *
+  module * { export * }
+}

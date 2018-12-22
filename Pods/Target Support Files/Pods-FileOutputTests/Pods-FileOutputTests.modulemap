@@ -1,0 +1,6 @@
+framework module Pods_FileOutputTests {
+  umbrella header "Pods-FileOutputTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
