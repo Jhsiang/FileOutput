@@ -11,6 +11,21 @@ import PDFGenerator
 import PDFReader
 
 
+func generteMyImgPDF(imgArr:[UIImage]){
+    var pages = Array<PDFPage>()
+    for image in imgArr{
+        let page = PDFPage.image(image)
+        pages.append(page)
+    }
+    if pages.count > 0 {
+        let path = URL(fileURLWithPath: NSTemporaryDirectory().appending("sample1.pdf"))
+        do {
+            try PDFGenerator.generate(pages, to: path)
+        }catch (let error){
+            print("image error = ",error)
+        }
+    }
+}
 
 func generateMyPDF(view:[UIView]){
     var pages = Array<PDFPage>()

@@ -20,13 +20,19 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        creatMyImgPDF()
+        readPDF()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         //A4 21*29
         myLabel.text = "40342"
-        creatMyPDF()
-        readPDF()
+
+//        creatMyImgPDF()
+//        readPDF()
+
+        //creatMyPDF()
+        //readPDF()
         
     }
 
@@ -87,10 +93,33 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
         }
     }
 
+    func creatMyImgPDF(){
+        var image = UIImage(named: "image3.png")!
+
+        let w = image.size.width
+        let h = image.size.height
+
+        let x1 = w * form.share.widthPoint * 3
+        let x2 = w * form.share.widthPoint * 4
+        let y1 = h * form.share.heightPoint * 8
+        let y2 = h * form.share.heightPoint * 9
+        let y3 = h * form.share.heightPoint * 10
+        let y4 = h * form.share.heightPoint * 17
+
+        image = image.addText(drawText: "Intel", atPoint: CGPoint(x: x1, y: y1), width: 2, height: 1)
+        image = image.addText(drawText: "Skylake", atPoint: CGPoint(x: x1, y: y2), width: 2, height: 1)
+        image = image.addText(drawText: "H161217-C08", atPoint: CGPoint(x: x1, y: y3), width: 2, height: 1)
+        image = image.addText(drawText: "Jason", atPoint: CGPoint(x: x2, y: y4), width: 1, height: 1)
+
+        generteMyImgPDF(imgArr: [image])
+    }
+
     func creatMyPDF(){
-        let v1 = UIView(frame: CGRect(origin: CGPoint.zero, size: PDFPageSize.A4))
+        let v1 = UIView(frame: CGRect(origin: CGPoint(x: 500, y: 500), size: PDFPageSize.A4))
         let imageView = UIImageView(frame: v1.bounds)
-        let image = UIImage(named: "image1.png")
+        var image = UIImage(named: "image1.png")!
+        image = image.addText(drawText: "Hello world", atPoint: CGPoint(x: 0, y: 0))
+        image = image.addText(drawText: "40342", atPoint: CGPoint(x: 100, y: 200))
         imageView.image = image
 
         let labelW:CGFloat = 40
