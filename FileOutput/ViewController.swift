@@ -9,7 +9,7 @@
 import UIKit
 import PDFGenerator
 import PDFReader
-import Social
+//import Social
 
 class ViewController: UIViewController,UINavigationControllerDelegate,UITextFieldDelegate {
 
@@ -40,9 +40,8 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
         let documentFileURL = FileManager.default.temporaryDirectory.appendingPathComponent("sample1.pdf")
         let pdfData = NSData(contentsOf: documentFileURL)
         let activityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
-
+        
         self.present(activityViewController, animated: true, completion: nil)
-
 
     }
 
@@ -145,7 +144,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
     }
 
     @objc func keyBoardWillShow(note:NSNotification){
-
+        
     }
 
 

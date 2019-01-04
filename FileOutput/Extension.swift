@@ -36,11 +36,22 @@ extension UIImage {
         let textSize = text.size(withAttributes: textFontAttributes)
         rect.origin.y = rect.origin.y + (self.size.width*form.share.heightPoint*height - textSize.height)
         text.draw(in: rect, withAttributes: textFontAttributes)
-
+        
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
         return newImage!
     }
 
+}
+
+
+class myTextField: UITextField {
+    var indexPath:IndexPath?
+}
+
+extension Double {
+    func toStr() -> String {
+        return String(self)
+    }
 }
