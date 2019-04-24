@@ -165,7 +165,7 @@ class Report {
         get {
             if let centerF = specCenterFrequency, let FL = unitFL, let mF = measureFreq{
                 let percent = (mF - centerF) / centerF
-                let ppm = percent * powl(10, 6)
+                let ppm = percent * pow(10, 6)
                 let shift = ppm - FL
                 return String(format: "%.2f", shift)
             }else{
@@ -177,7 +177,7 @@ class Report {
     private var resultDL: String?{
         get{
             if let rr = unitRR, let mCur = measureCurrent{
-                let dl = powl(mCur, 2) * rr
+                let dl = pow(mCur, 2) * rr
                 return String(format: "%.2f", dl)
             }else{
                 return nil
